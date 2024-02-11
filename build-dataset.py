@@ -4,6 +4,12 @@
 # have found 0 sources for the data, LOL..
 # might try using a FRCNN or a RCNN to do the ML training.
 
+"""
+* @todo Convert the frames into pictures(black)
+* @todo Create XML structures with labelling
+* @todo Utilize three different datasets: eastwards wind, northwards wind, and precipitation levels.
+"""
+
 import xarray as xr
 import matplotlib.pyplot as plt
 import matplotlib.animation as anim
@@ -27,8 +33,6 @@ northward_wind = ds['northward_wind']
 # eastward_wind = eastward_wind.isel(time=18)
 image_e = eastward_wind.isel(time=0).plot.imshow(ax=ax[0], transform=ccrs.PlateCarree(), animated=True, cmap='gist_gray')
 image_n = northward_wind.isel(time=0).plot.imshow(ax=ax[1], transform=ccrs.PlateCarree(), animated=True, cmap='gist_gray')
-
-
 
 def update(t):
     # Update the plot for a specific time
